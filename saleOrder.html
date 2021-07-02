@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Purchase Order</title>
+</head>
+<style>
+.row_custom {
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.custom_header_invoice h1,
+.custom_header_invoice p {
+    margin: 0;
+}
+
+p {
+    margin: 0;
+}
+
+.container_rahber {
+    max-width: 970px;
+    margin: 0 auto;
+}
+
+.left_logo_rehbar {
+    float: left;
+    width: 60%;
+}
+
+.left_logo_rehbar img {
+    height: 70px;
+}
+
+.right_div_after {
+    padding-top: 7px;
+    text-align: right;
+    float: right;
+    width: 40%;
+}
+
+h1,
+p,
+td,
+tr,
+th {
+    color: rgba(0, 0, 0, .8);
+}
+
+tr,
+th,
+td {
+    padding: 12px 0;
+    font-size: 15px;
+    font-weight: lighter;
+}
+
+.right_div_after h1 {
+    font-size: 32px;
+    color: black !important;
+}
+
+.clear_float {
+    clear: both;
+    float: none;
+}
+
+.header_title {
+    margin-top: 10px;
+    width: 100%;
+}
+
+.header_title .left_title,
+.right_title {
+    float: right;
+    width: 57%;
+}
+
+.left_title {
+    border: 2px solid rgba(0, 0, 0, .8);
+}
+
+.right_title {
+    border-right: 2px solid rgba(0, 0, 0, .8);
+    border-left: 2px solid rgba(0, 0, 0, .8);
+    border-bottom: 2px solid rgba(0, 0, 0, .8);
+}
+
+.left_title div:first-child,
+.right_title div:first-child {
+    float: left;
+    padding: 10px 0;
+    width: 50%;
+    text-align: center;
+    border-right: 2px solid rgba(0, 0, 0, .8);
+}
+
+.left_title div:last-child,
+.right_title div:last-child {
+    float: right;
+    padding: 10px 0;
+    text-align: center;
+    width: 40%;
+}
+
+.header_title p,
+.bottom_div-end p {
+    font-size: 14px;
+}
+
+.bottom_div-end {
+    margin: 10px 0;
+}
+
+
+.left_bottom_end {
+    height: 170px;
+    border: 2px solid rgba(0, 0, 0, .8);
+    float: left;
+    width: 40%;
+}
+
+.left_bottom_end div:first-child {
+    border-bottom: 2px solid rgba(0, 0, 0, .8);
+    padding: 7px 18px;
+}
+
+
+.right_bottom_end div:first-child {
+    border-bottom: 2px solid rgba(0, 0, 0, .8);
+    padding: 7px 18px;
+}
+
+
+.right_bottom_end div:last-child,
+.left_bottom_end div:last-child {
+    padding: 3px 3px 40px 3px;
+}
+
+.right_bottom_end div:last-child p,
+.left_bottom_end div:last-child p {
+    width: 170px;
+
+}
+
+.right_bottom_end {
+    border: 2px solid rgba(0, 0, 0, .8);
+    float: right;
+    height: 170px;
+    width: 40%;
+}
+
+.bottom_table_custom {
+    margin-top: 40px;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.bottom_table_custom th,
+.bottom_table_custom td {
+    border: 2px solid rgba(0, 0, 0, .8);
+}
+
+.bottom_table_custom td {
+    vertical-align: top;
+    padding: 4px 4px 20px 4px !important;
+}
+
+.bottom_table_custom thead tr:last-child th {
+    background: rgba(0, 0, 0, .08);
+}
+
+.bottom_table_custom thead tr:last-child th:nth-child(2) {
+    width: 200px;
+}
+
+.bottom_table_custom thead tr th {
+    font-size: 14px;
+}
+
+.bottom_table_custom tbody tr td:nth-child(2) {
+    width: 200px;
+}
+
+.bottom_table_custom tbody tr td:nth-child(5),
+.bottom_table_custom tbody tr td:nth-child(6) {
+    text-align: center !important;
+}
+
+.bottom_table_custom tfoot tr th:nth-child(3) {
+    padding: 5px 5px !important;
+}
+
+.bottom_table_custom tfoot tr th:last-child {
+    padding: 15px 10px !important;
+}
+
+.bottom_table_custom tfoot tr td:last-child span:first-child {
+    font-weight: bold;
+    font-size: 18px;
+    color: black;
+    float: left;
+    text-align: left;
+}
+
+.bottom_table_custom tfoot tr td:last-child span:last-child {
+    float: right;
+    text-align: right;
+}
+
+
+.bottom_table_custom tfoot tr td {
+    padding: 0 !important;
+    text-align: center;
+}
+
+.total_table_bottom p span {
+    padding: 0 25px 0px 25px;
+}
+
+
+tfoot tr td:last-child {
+    padding: 20px 5px !important;
+    vertical-align: middle;
+}
+
+tfoot tr:first-child td:nth-child(3) {
+    text-align: center;
+    vertical-align: middle !important;
+}
+
+tfoot tr:first-child td:nth-child(4) {
+    padding: 10px 5px !important;
+}
+
+tfoot tr:nth-child(2) td:nth-child(1) {
+    border-bottom: none !important;
+}
+
+tfoot tr:nth-child(3) td:nth-child(1) {
+    border-top: none !important;
+    vertical-align: bottom !important;
+    padding-bottom: 10px !important;
+}
+
+tfoot tr:nth-child(3) td:nth-child(1) p:first-child {
+    float: left;
+    width: 30%;
+    text-align: right;
+}
+
+tfoot tr:nth-child(3) td:nth-child(1) p:last-child {
+    float: left;
+    width: 37%;
+    text-align: right;
+}
+
+tfoot tr:nth-child(1) td:first-child {
+    vertical-align: middle !important;
+    font-weight: bold;
+    color: black;
+    font-size: 18px;
+}
+
+.main_items {
+    margin-top: 5px;
+}
+
+.main_items p:first-child {
+    margin-bottom: 15px;
+}
+
+.total_table_bottom_item1 {
+    float: left;
+    width: 23%;
+    text-align: right;
+    margin-bottom: 10px;
+}
+
+.total_table_bottom_item2 {
+    float: left;
+    width: 23%;
+    text-align: right;
+    margin-bottom: 10px;
+
+}
+
+.total_table_bottom_item3 {
+    float: left;
+    width: 23%;
+    text-align: right;
+    margin-bottom: 10px;
+
+}
+
+.total_table_bottom_item4 {
+    float: left;
+    width: 23%;
+    text-align: right;
+    margin-bottom: 10px;
+}
+
+.vat_total {
+    margin-top: 10px;
+}
+
+.vat_total_side {
+    margin-top: 11px;
+}
+
+.side_total {
+    margin-top: 5px;
+}
+
+/**** FOOOTER   ****/
+
+.footer_custom {
+    padding: 0px 0px 0 6px;
+    width: 100%;
+    border-radius: 2px;
+    border-top: 4px solid orange;
+    margin-top: 50px;
+    font-size: 12px;
+}
+
+.footer_custom div:first-child {
+    padding: 0px 10px 0 0;
+    float: left;
+    width: 26%;
+}
+
+.footer_custom div {
+    height: 100px;
+    max-height: 200px;
+    border-right: 1px dotted black;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.footer_custom div:nth-child(2) {
+    float: left;
+    width: 20%;
+}
+
+.footer_custom div:nth-child(3) {
+    float: left;
+    width: 22%;
+}
+
+.footer_custom div:nth-child(4) {
+    float: right;
+    width: 24%;
+}
+
+.footer_custom div:first-child p:first-child {
+    font-weight: bold;
+    padding-bottom: 3px;
+    color: black;
+}
+
+.footer_custom div:first-child p:nth-child(3),
+.footer_custom div:first-child p:nth-child(5) {
+    float: left;
+    padding-right: 5px;
+}
+
+.footer_custom div:first-child p:nth-child(4),
+.footer_custom div:first-child p:nth-child(6) {
+    float: left;
+    text-align: left;
+}
+
+thead {
+    display: table-header-group;
+}
+
+tfoot {
+    display: table-footer-group;
+}
+
+@media print {
+    thead {
+        display: table-header-group;
+    }
+
+    tfoot {
+        display: table-footer-group;
+    }
+}
+
+tr {
+    page-break-inside: avoid !important;
+}
+
+td {
+    padding-top: 3px;
+    vertical-align: top !important;
+    page-break-inside: avoid !important;
+}
+
+td {
+    page-break-after: always;
+}
+</style>
+
+<body>
+    <div class="row_custom">
+        <div class="container_rahber">
+            <div class="custom_header_invoice">
+                <div class="left_logo_rehbar"><img src="logo_rahber.png" alt="Rahber" /></div>
+                <div class="right_div_after">
+                    <h1>Sale Order</h1>
+                    <div class="header_title">
+                        <div>
+                            <div class="left_title">
+                                <div>
+                                    <p><span>Tax Date</span></p>
+                                </div>
+                                <div>
+                                    <p><span>P.O. No.</span></p>
+                                </div>
+                            </div>
+                            <br class="clear_float" />
+                            <div class="right_title">
+                                <div>
+                                    <p><span>08/12/2020</span></p>
+                                </div>
+                                <div>
+                                    <p><span>2380</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br class="clear_float" />
+            <div class="bottom_div-end">
+                <div class="left_bottom_end">
+                    <div>
+                        <p><span>Name / Address</span></p>
+                    </div>
+                    <div>
+                        <p><span>Arbitech, LLC
+                                64 Fairbanks
+                                Irvine, CA 92618 USA</span></p>
+                    </div>
+                </div>
+                <div class="right_bottom_end">
+                    <div>
+                        <p><span>Ship To</span></p>
+                    </div>
+                    <div>
+                        <p><span>Rahber Enterprise Limited
+                                Brook House
+                                54A Cowley Mill Road
+                                Uxbridge
+                                UB8 2FX</span></p>
+                    </div>
+                </div>
+            </div>
+            <br class="clear_float" />
+            <table class="bottom_table_custom">
+                <thead>
+                    <tr>
+                        <th><span>P.O. No.</span></th>
+                        <th><span>Terms</span></th>
+                        <th><span>Rep</span></th>
+                        <th><span>Ship Via</span></th>
+                        <th colspan="2"><span>Project</span></th>
+                        <th colspan="2"><span>Cust Vat Reg.</span></th>
+                    </tr>
+                    <tr>
+                        <th><span>2020-ORR-0001276</span></th>
+                        <th><span>PrePayment</span></th>
+                        <th><span>Waqas</span></th>
+                        <th><span></span></th>
+                        <th colspan="2"><span></span></th>
+                        <th colspan="2"><span>000000000000000</span></th>
+                    </tr>
+                    <tr>
+                        <th><span>Item</span></th>
+                        <th colspan="2"><span>Description</span></th>
+                        <th><span>Condition</span></th>
+                        <th><span>Order</span></th>
+                        <th><span>Rate</span></th>
+                        <th><span>Amount</span></th>
+                        <th><span>VAT</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span>JX936A</span></td>
+                        <td colspan="2"><span>Aruba, a Hewlett Packard Enterprise
+                                company AP-305 1300 Mbit/s Power over
+                                Ethernet (PoE) White</span></td>
+                        <td><span>RETAIL</span></td>
+                        <td><span>4</span></td>
+                        <td><span>200.00</span></td>
+                        <td><span>800.00</span></td>
+                        <td><span>EGZ</span></td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="6"><span>VAT Summary</span></td>
+                        <td colspan="2"><span>Subtotal</span><span>USD 1,700.00</span></td>
+                    </tr>
+                    <tr>
+                        <td colspan="6" rowspan="">
+                            <div class="main_items">
+                                <div class="total_table_bottom_item1">
+                                    <div>
+                                        <p><span>Rate</span></p>
+                                        <p><span>Z@0.0%</span></p>
+                                        <p><span>TOTALS</span></p>
+                                    </div>
+                                </div>
+                                <div class="total_table_bottom_item2">
+                                    <div>
+                                        <p><span>USD VAT</span></p>
+                                        <p><span>0.00</span></p>
+                                        <p><span>1,327.18</span></p>
+                                    </div>
+                                </div>
+                                <div class="total_table_bottom_item3">
+                                    <div>
+                                        <p><span>GBP VAT</span></p>
+                                        <p><span>0.00</span></p>
+                                        <p><span>1,327.18</span></p>
+                                    </div>
+                                </div>
+                                <div class="total_table_bottom_item4">
+                                    <div>
+                                        <p><span>GBP NET</span></p>
+                                        <p><span>1,327.18</span></p>
+                                        <p><span>1,327.18</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td colspan="6" rowspan=""><span class="vat_total">VAT Total</span><span class="vat_total_side">USD 1,700.00</span></td>
+                    </tr>
+                    <tr>
+                        <td colspan="6">
+                            <p><span>Cust Vat Reg.</span></p>
+                            <p><span>000000000000000</span></p>
+                        </td>
+                        <td colspan="2" rowspan=""><span style="font-size: 24px;">Total</span><span class="side_total">USD 1,700.00</span></td>
+                    </tr>
+                </tfoot>
+            </table>
+            <div class="footer_custom">
+                <div>
+                    <p><span>RAHBER ENTERPRISE LTD</span></p>
+                    <p><span>Brook House, 54A Cowley Mill Road
+                            Uxbridge, Middlesex, UB8 2FX
+                            United Kingdom
+                            <p><span>Tell:</span></span><span>02034091471</span></p>
+                    <p><span>Fax:</span><span>02034091470</span></p>
+                    <p><span>VAT:</span><span>GB 220 9332 39</span></p>,<p><span>Company No:</span><span>9761421</span></p>
+                </div>
+                <div>
+                    <p><span>British Pound</span></p>
+                    <p><span>Name:</span><span>Rahber Enterprise Limited</span></p>
+                    <p><span>Bank:</span><span>Barclays Bank Plc</span></p>
+                    <p><span>Sort Code 20-27-49</span></p>
+                    <p><span>Account</span><span>13599442</span></p>
+                </div>
+                <div>
+                    <p>
+                        <span>Euro</span></p>
+                    <p>
+                        <span>Name:</span>
+                        <span>Rahber Enterprise Limited</span>
+                    </p>
+                    <p>
+                        <span>Bank:</span>
+                        <span>Barclays Bank Plc</span>
+                    </p>
+                    <p>
+                        <span>SWIFt:</span>
+                        <span>BUKBGB22</span></p>
+                    <p>
+                        <span>IBAN:</span>
+                        <span>GB10BUKB20274959513188</span></p>
+                </div>
+                <div>
+                    <p><span>US Dollar</span></p>
+                    <p>
+                        <span>Name:</span>
+                        <span>Rahber Enterprise Limited</span>
+                    </p>
+                    <p>
+                        <span>Bank:</span>
+                        <span>Barclays Bank Plc</span>
+                    </p>
+                    <p>
+                        <span>SWIFt:</span>
+                        <span>BUKBGB22</span>
+                    </p>
+                    <p>
+                        <span>IBAN:</span>
+                        <span>GB10BUKB20274959513188</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

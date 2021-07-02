@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Invoice</title>
+    <style>
+        
+    .row_custom {
+        font-family: Arial, sans-serif;
+        overflow-x: hidden;
+    }
+
+    .custom_header_invoice h1,
+    .custom_header_invoice p {
+        margin: 0;
+    }
+
+    p {
+        margin: 0;
+    }
+
+    .container_rahber {
+        max-width: 970px;
+        margin: 0 auto;
+    }
+
+    .left_logo_rehbar {
+        float: left;
+        width: 60%;
+    }
+
+    .left_logo_rehbar img {
+        height: 70px;
+    }
+
+    .right_div_after {
+        padding-top: 5px;
+        text-align: right;
+        float: right;
+        width: 40%;
+    }
+
+    .right_div_after h1 {
+        font-size: 32px;
+    }
+
+    .header_title {
+        margin-right: -5px;
+        float: right;
+        width: 75%;
+        padding: 5px 0 0 0;
+    }
+
+    .clear_float {
+        clear: both;
+        float: none;
+    }
+
+    .header_title div:first-child {
+        float: left;
+        text-align: left;
+        width: 50%;
+        font-size: 13.5px;
+        line-height: 2.3rem;
+    }
+
+    .header_title div:last-child {
+        text-align: right;
+        float: right;
+        width: 50%;
+        line-height: 2.3rem;
+        font-size: 13.5px;
+    }
+
+    .header_title div:last-child p {
+        text-align: left;
+    }
+
+    .bottom_div_round {
+        width: 100%;
+        padding: 20px 0 30px 0;
+    }
+
+    .bottom_div_round div h1,
+    .bottom_div_round div p {
+        color: rgba(0, 0, 0, .8);
+        font-size: 15px;
+        font-weight: lighter;
+    }
+
+    .bottom_div_round div:first-child {
+        float: left;
+        width: 40%;
+    }
+
+    .bottom_div_round div:last-child {
+        float: right;
+        width: 40%;
+    }
+
+    .bottom_div_round div:last-child,
+    .bottom_div_round div:first-child {
+        background: rgba(0, 0, 0, .01);
+        border: 2px solid rgba(0, 0, 0, .8);
+        padding: 13px 22px;
+        border-radius: 20px;
+    }
+
+    .bottom_div_round div:last-child h1,
+    .bottom_div_round div:first-child h1 {
+        padding-bottom: 12px;
+    }
+
+    .foot-custom,
+    .foot-custom2 {
+        padding-top: 55px;
+    }
+
+    .foot-custom p span:first-child {
+        float: left;
+        width: 33%;
+    }
+
+    .foot-custom p span:nth-child(2) {
+        float: left;
+        text-align: center;
+        width: 40%;
+    }
+
+    .foot-custom p span:last-child {
+        float: right;
+        text-align: right;
+        width: 26%;
+    }
+
+    .foot-custom2 p span:first-child {
+        float: left;
+        width: 25%;
+    }
+
+    .foot-custom2 p span:nth-child(2) {
+        float: left;
+        width: 45%;
+        text-align: center;
+    }
+
+    .foot-custom2 p span:last-child {
+        float: right;
+        width: 30%;
+        text-align: right;
+    }
+
+    .table_invoice {
+        margin-top: 30px;
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+    }
+
+    .table_invoice thead {
+        display: table-header-group;
+    }
+
+    .table_invoice td,
+    .table_invoice th,
+    .table_invoice tr {
+        font-size: 14px;
+    }
+
+    .table_invoice thead tr:first-child th:first-child,
+    .table_invoice thead tr:first-child th:nth-child(3),
+    .table_invoice thead tr:first-child th:nth-child(5),
+    .table_invoice thead tr:first-child th:nth-child(7) {
+        background: rgba(0, 0, 0, .1);
+        text-align: left;
+        padding-left: 6px;
+    }
+
+    .table_invoice thead tr:last-child th {
+        background: rgba(0, 0, 0, .1);
+    }
+
+    .table_invoice thead tr:first-child th:nth-child(3) {
+        text-align: center !important;
+        padding-left: 0 !important;
+    }
+
+    .table_invoice thead tr:first-child th:nth-child(1) {
+        width: 9%;
+    }
+
+    .table_invoice thead tr:first-child th:nth-child(2) {
+        width: 20%;
+    }
+
+    .table_invoice thead tr:first-child th:nth-child(3) {
+        width: 11%;
+    }
+
+    .table_invoice thead tr:first-child th:nth-child(4) {
+        width: 12%;
+    }
+
+    .table_invoice thead tr:first-child th:nth-child(5) {
+        width: 11%;
+    }
+
+    .table_invoice thead tr:first-child th:nth-child(6) {
+        width: 14%;
+    }
+
+    .table_invoice thead tr:first-child th:nth-child(7) {
+        width: 12%;
+    }
+
+    .table_invoice thead tr:first-child th:first-child {
+        border-radius: 15px 0 0 0;
+        -moz-border-radius: 15px 0 0 0;
+    }
+
+    .table_invoice thead tr:first-child th:last-child {
+        border-radius: 0 15px 0 0;
+        -moz-border-radius: 15px 0 0 0;
+    }
+
+    .table_invoice thead tr:first-child th {
+        border: 2px solid rgba(0, 0, 0, .8);
+        padding: 9px 0;
+        color: rgba(0, 0, 0, .8);
+        font-weight: lighter;
+    }
+
+    .table_invoice thead tr:last-child th {
+        border-bottom: 2px solid rgba(0, 0, 0, .8);
+        border-right: 2px solid rgba(0, 0, 0, .8);
+        border-left: 2px solid rgba(0, 0, 0, .8);
+        padding: 10px 0;
+        color: rgba(0, 0, 0, .8);
+        font-weight: lighter;
+    }
+
+    .table_invoice thead tr:last-child th:first-child,
+    .table_invoice thead tr:first-child th:first-child,
+    .table_invoice thead tr:last-child th:nth-child(2),
+    .table_invoice thead tr:last-child th:nth-child(3),
+    .table_invoice thead tr:last-child th:nth-child(4),
+    .table_invoice thead tr:last-child th:nth-child(5),
+    .table_invoice thead tr:first-child th:nth-child(2),
+    .table_invoice thead tr:first-child th:nth-child(3),
+    .table_invoice thead tr:first-child th:nth-child(4),
+    .table_invoice thead tr:first-child th:nth-child(5),
+    .table_invoice thead tr:first-child th:nth-child(6),
+    .table_invoice thead tr:first-child th:nth-child(7) {
+        border-right: 0px !important;
+    }
+
+    .table_invoice tbody tr td {
+        text-align: center;
+        font-size: 13px;
+        padding-bottom: 50px;
+        border: 1px solid rgba(0, 0, 0, .2);
+    }
+
+    .table_invoice tbody tr td:first-child,
+    .table_invoice tbody tr td:nth-child(2) {
+        padding: 3px 5px 50px 5px;
+        text-align: left !important;
+    }
+
+    .bottom_table-total {
+        border: 2px solid rgba(0, 0, 0, .8);
+        border-radius: 15px;
+        color: rgba(0, 0, 0, .8);
+        padding: 10px 0;
+        width: 70%;
+        margin-top: 10px;
+        float: left;
+    }
+
+    .bottom_table-total h1 {
+        margin: 0;
+        text-align: center;
+        font-size: 18px;
+        padding-bottom: 5px;
+        color: black;
+    }
+
+    .bottom_table-total div {
+        padding: 40px 0;
+        margin: 0 2px;
+        font-size: 14px;
+        text-align: center;
+        border: 2px solid rgba(0, 0, 0, .8);
+    }
+
+    .bottom_table-total .item-b-1 {
+        float: left;
+        width: 31%;
+        height: 85px;
+        overflow-y: hidden;
+        margin-left: 10px;
+    }
+
+    .bottom_table-total .item-b-2 {
+        float: left;
+        width: 31%;
+        height: 85px;
+        overflow-y: hidden;
+    }
+
+    .bottom_table-total .item-b-3 {
+        float: left;
+        width: 31%;
+        height: 85px;
+        overflow-y: hidden;
+    }
+
+    .main_bottom {
+        padding: 5px 0;
+    }
+
+    .bottom_subtotal {
+        float: right;
+        border-radius: 15px;
+        padding: 10px 0;
+        width: 27%;
+        background: rgba(0, 0, 0, .22);
+        border: 2px solid rgba(0, 0, 0, .8);
+    }
+
+    .bottom_table-total p {
+        font-size: 12px;
+    }
+
+    .bottom_subtotal p:first-child {
+        margin-top: 0 !important;
+    }
+
+    .bottom_subtotal p span:first-child {
+        font-weight: bold;
+        font-size: 15.5px;
+        float: left;
+        text-align: left;
+    }
+
+    .bottom_subtotal p span:last-child {
+        text-align: right;
+        float: right;
+        font-size: 11px;
+        padding-top: 2px;
+    }
+
+    .bottom_subtotal p {
+        margin: 1rem 0;
+        padding: 15px 8px 10px 15px;
+    }
+
+    .footer_page {
+        margin-top: 30px;
+        text-align: center;
+        color: #b76400;
+        font-size: 16px;
+    }
+
+    @media print {
+        thead {
+            display: table-header-group;
+        }
+
+        .header_title {
+            margin-right: 30px !important;
+        }
+    }
+
+    tr {
+        page-break-inside: avoid !important;
+    }
+
+    td {
+        padding-top: 3px;
+        vertical-align: top !important;
+        page-break-inside: avoid !important;
+    }
+
+    td {
+        page-break-after: always;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="row_custom">
+        <div class="container_rahber">
+            <div class="custom_header_invoice">
+                <div class="left_logo_rehbar"><img src="logo_rahber.png" alt="Rahber" /></div>
+                <div class="right_div_after">
+                    <h1>Invoice</h1>
+                    <div class="header_title">
+                        <div>
+                            <p><span>Invoice No.</span></p>
+                            <p><span>Date</span></p>
+                        </div>
+                        <div>
+                            <p><span>6337</span></p>
+                            <p><span>04/01/2021</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br class="clear_float" />
+            <div class="bottom_div_round">
+                <div>
+                    <h1>Invoice To</h1>
+                    <p><span>Informatica Telematica Meridionale Srl</span><span></span></p>
+                    <p><span>Via N. Poggioreale,</span><span></span></p>
+                    <p><span>11 Torre 7 1° Piano 80143,</span><span></span></p>
+                    <p><span>Napoli</span><span></span></p>
+                    <h2 class="foot-custom">
+                        <p><span>Customer VAT</span><span>IT04624690634</span><span></span></p>
+                    </h2>
+                </div>
+                <div>
+                    <h1>Shipping to</h1>
+                    <p><span>VALENTINA VASSALLUCCI</span><span></span></p>
+                    <p><span>VIA KERBAKER 86</span><span></span></p>
+                    <p><span>80129</span><span>NAPOLI</span></p>
+                    <p><span>Phone:</span><span>3339909999</span></p>
+                    <h2 class="foot-custom2">
+                        <p><span>FedEx</span><span>772522541169</span><span>29/12/2020</span></p>
+                    </h2>
+                </div>
+            </div>
+            <br class="clear_float" />
+            <table class="table_invoice">
+                <thead>
+                    <tr>
+                        <th><span>P.O. No.</span></th>
+                        <th><span>2020-ORR-0001276</span></th>
+                        <th><span>S.O. No.</span></th>
+                        <th><span>2363</span></th>
+                        <th><span>Terms</span></th>
+                        <th><span>PrePayment</span></th>
+                        <th><span>Due Date</span></th>
+                        <th><span>04/01/2021</span></th>
+                    </tr>
+                    <tr>
+                        <th colspan="1.5">Item</th>
+                        <th colspan="3">Description</th>
+                        <th>QTY</th>
+                        <th>Rate</th>
+                        <th>Amount</th>
+                        <th>VAT</th>
+                    </tr>
+                <tbody>
+                    <tr>
+                        <td><span>JX936A</span></td>
+                        <td colspan="3"><span>Aruba, a Hewlett Packard Enterprise company AP-305
+                                1300 Mbit/s Power over Ethernet (PoE) White
+                                CNJRJSSFN2
+                                CNJRJSSFMW
+                                CNJRJSSFLX
+                                CNJRJSSFH7
+                            </span></td>
+                        <td><span>4</span></td>
+                        <td><span>200.00</span></td>
+                        <td><span>800.00</span></td>
+                        <td><span>EGZ</span></td>
+                    </tr>
+                </tbody>
+                </thead>
+            </table>
+            <br class="clear_float" />
+            <div class="main_bottom">
+                <div class="bottom_table-total">
+                    <h1>Bank Detail</h1>
+                    <div class="item-b-1">
+                        <p><span>British Pound</span></p>
+                        <p><span>Name:</span><br /><span>Rahber Enterprise
+                                Limited</span></p>
+                        <p><span>Bank:</span><span>Barclays Bank Plc</span></p>
+                        <p><span>Sort Code</span><span>20-27-49</span></p>
+                        <p><span>Account</span><span>13599442</span></p>
+                    </div>
+                    <div class="item-b-2">
+                        <p><span>Euro</span></p>
+                        <p><span>Name:</span><br /><span>Rahber Enterprise
+                                Limited</span></p>
+                        <p><span>Bank:</span><span>Barclays Bank Plc</span></p>
+                        <p><span>SWIFT:</span><span>BUKBGB22</span></p>
+                        <p><span>IBAN:</span><br /><span>GB10BUKB20274959513188</span></p>
+                    </div>
+                    <div class="item-b-3">
+                        <p><span>US Dollar</span></p>
+                        <p><span>Name:</span><br /><span>Rahber Enterprise
+                                Limited</span></p>
+                        <p><span>Bank:</span><span>Barclays Bank Plc</span></p>
+                        <p><span>SWIFT:</span><span>BUKBGB22</span></p>
+                        <p><span>IBAN:</span><br /><span>GB10BUKB20274959513188</span></p>
+                    </div>
+                </div>
+                <div class="bottom_subtotal">
+                    <p><span>Subtotal</span><span>EUR 800.00</span></p>
+                    <p><span>VAT Total</span><span>EUR 800.00</span></p>
+                    <p><span>Total</span><span>EUR 800.00</span></p>
+                    <p><span>Payments</span><span>EUR 800.00</span></p>
+                    <p><span>Balance Due</span><span>EUR 800.00</span></p>
+                </div>
+            </div>
+            <br class="clear_float" />
+            <div class="footer_page">
+                <p><span>BROOK HOUSE, 54A COWLEY MILL ROAD, UXBRIDGE, MIDDLESEX, UB8 2FX, United Kingdom.</span></p>
+                <p><span>Tell: 0044 (0) 2034091471 , Fax: 0044 (0) 2034091470, VAT: GB 220 9332 39, Company No: 9761421</span></p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
